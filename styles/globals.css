@@ -1,9 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'oswald-light';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Oswald'), url(../fonts/Oswald-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'oswald-medium';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Oswald'), url(../fonts/Oswald-Medium.ttf) format('truetype');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Georgia, sans-serif
 }
 
 a {
@@ -11,6 +30,79 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor:pointer;
+}
+
 * {
   box-sizing: border-box;
+}
+
+
+
+
+/* FONTS */
+.oswald {
+  font-family: oswald-medium, sans-serif;
+}
+
+.oswald-light {
+  font-family: oswald-light, sans-serif;
+}
+
+/* COLORS */
+/* primary colors */
+.arch-black {
+  color: #000000;
+}
+
+.arch-black-bg {
+  background-color: #000000;
+}
+
+.bulldog-red {
+  color: #BA0C2F;
+}
+
+.bulldog-red-bg {
+  background-color: #BA0C2F;
+}
+
+/* secondary colors */
+.glory-glory {
+  color: #E4002B;
+}
+
+.glory-glory-bg {
+  background-color: #E4002B;
+}
+
+.lake-herrick {
+  color: #00A3AD;
+}
+
+.lake-herrick-bg {
+  background-color: #00A3AD;
+}
+
+.odyssey {
+  color: #C8D8EB;
+}
+
+.odyssey-bg {
+  background-color: #C8D8EB;
+}
+
+.stegman {
+  color: #9EA2A2;
+}
+
+.stegman-bg {
+  background-color: #9EA2A2;
+}
+
+.slidedown {
+  overflow: hidden;
+  transition-duration: .3s;
+  transition-timing-function: ease-in-out;
 }
