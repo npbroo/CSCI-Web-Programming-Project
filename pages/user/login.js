@@ -1,5 +1,5 @@
 import { Menu } from '../../components/Menu';
-import { LogInButton } from '../../components/buttons/LogInButton'
+import { LoginForm } from '../../components/LoginForm'
 import { RegisterButton } from '../../components/buttons/RegisterButton'
 import { Footer } from '../../components/Footer'
 
@@ -21,7 +21,7 @@ export default function Login() {
                         Otherwise you can create a new account.
                     </span>
                     <span className="flex">
-                        <LogInButton />
+                        <LoginForm />
                         <span className="mx-2">or</span>
                         <RegisterButton />
                     </span>
