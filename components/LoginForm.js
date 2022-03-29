@@ -33,7 +33,7 @@ export const LoginForm = () => {
             localStorage.setItem("logged_in", true)
             router.push("/user")
         } else {
-            alert("cannot login. Wrong username or password.")
+            alert("Cannot login. Wrong username or password.")
         }
     
 

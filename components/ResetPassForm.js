@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react';
 
 export const ResetPassForm = () => {
+    let router = useRouter()
     //these are states which hold your input
     //ex: 'userInput' is the variable which holds your input and 'setUserInput' is the function that changes this variable
     const [user, setUser] = useState(''); // '' is the initial state value
@@ -17,8 +18,6 @@ export const ResetPassForm = () => {
             alert("your passwords do not match")
         } else {
             //call database here
-
-
             const res = await fetch('/api/reset-pass', {
                 method: 'POST',
                 body: JSON.stringify({ pass: confirmPass, user: user, oldPass: oldPass }),
@@ -29,9 +28,13 @@ export const ResetPassForm = () => {
             )
 
             const data = await res.json()
-            console.log(data)
 
-            alert("success")
+            if(data["success"] == false) {
+                alert("username or password is incorrect")
+            } else {
+                alert("Your password has been updated")
+                router.push("/user/login")
+            }
         }
 
     }
