@@ -16,9 +16,11 @@ export default async function handler(req, res) {
             res.json({ success: false });
         } else {
             if(userData[0]["pass"] == oldPassword) {
+                //password matches, update old password
                 let updatePass = await executeQuery("UPDATE person SET pass=? WHERE user=?", [password, username])
                 res.status(201).json(updatePass)
             } else {
+                //password does not match
                 res.json({ success: false });
             }
         }

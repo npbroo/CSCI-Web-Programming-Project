@@ -4,7 +4,7 @@ import { Footer } from '../components/Footer'
 export default function Cart() {
 
     return (
-        <div>
+        <>
             <Menu />
             <div className="h-96 flex">
                 <span className="m-auto">
@@ -12,6 +12,6 @@ export default function Cart() {
                 </span>
             </div>
             <Footer />
-        </div>
+        </>
     )
 }

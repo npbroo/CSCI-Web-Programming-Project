@@ -12,8 +12,10 @@ export default async function handler(req, res) {
         //res.send(userData)
 
         if(userData[0]["pass"] == password) {
+            //password matches
             res.json({ success: true });
         } else {
+            //password does not match
             res.json({ success: false });
         }
     }

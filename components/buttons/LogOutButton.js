@@ -1,15 +1,8 @@
 import { useRouter } from 'next/router'
-import React, { useEffect } from 'react';
 import { setGlobalState } from "../../state/global_states";
 
-export const LogOutButton = () => {
+export const LogOutButton = (props) => {
     let router = useRouter()
-    useEffect(() => {
-        console.log(localStorage.getItem("logged_in"))
-        if(localStorage.getItem("logged_in") == "false") {
-            router.push("/user/login")
-        }
-    }, []);
 
     const logOut = () => {
         setGlobalState("logged_in", false)
@@ -18,9 +11,16 @@ export const LogOutButton = () => {
     }
 
     return (
-        <button onClick={logOut} className="flex odyssey-bg rounded w-20">
-                <div className="m-auto">Log Out</div>
+        <>
+        {props.button
+        ?
+        <button onClick={logOut} className="custom-btn">
+            {props.text}
         </button>
+        :
+        <a onClick={logOut} className="ml-auto">{props.text}</a>
+        }
+        </>
     );
 
 }

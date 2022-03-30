@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer'
 export default function Home() {
 
   return (
-    <div>
+    <>
       <Head>
         <title>CSCI 4300 Final Project</title>
         <meta name="The final project for CSCI 4300" content="created with next.js" />
@@ -20,6 +20,6 @@ export default function Home() {
       </div>
 
       <Footer />
-    </div>
+    </>
   )
 }

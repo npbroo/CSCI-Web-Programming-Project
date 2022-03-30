@@ -1,35 +1,23 @@
+import Link from 'next/link';
 import { Menu } from '../../components/Menu';
-import { LoginForm } from '../../components/LoginForm'
-import { RegisterButton } from '../../components/buttons/RegisterButton'
+import { LoginForm } from '../../components/forms/LoginForm'
 import { Footer } from '../../components/Footer'
-
 
 
 export default function Login() {
 
     return (
-        <div>
+        <>
             <Menu />
-
-            
-
-            <div className="h-96 flex">
-                <span className="mt-5 ml-5">
-                    <span className="oswald text-xl">User Login/Registration<br /></span>
-                    <span>
-                        If you already have an account, click the button below to login.<br />
-                        Otherwise you can create a new account.
-                    </span>
-                    <span className="flex">
-                        <LoginForm />
-                        <span className="mx-2">or</span>
-                        <RegisterButton />
-                    </span>
-                </span>
-
+            <div className="mt-5 mx-5">
+                <div className="oswald text-xl mb-1">User Login</div>
+                <div>Please login using the form below:</div><br/>
+                <LoginForm />
+                <br/>
+                Don't have an account?&nbsp;
+                <a><Link href="/user/register">Register Here</Link></a>
             </div>
-
             <Footer />
-        </div>
+        </>
     )
 }
