@@ -1,15 +1,25 @@
 How to run:
+
 1.) install visual studio
+
 2.) install node.js
+
 3.) install npm package manager
+
+4.) install yarn
+    $npm install --global yarn
+
 4.) install all of the dependencies
-    $npm install
-    $npm audit fix --force
+    - navigate to the base site directory
+    $yarn
+
 5.) load the included .sql file into XAMPP
     - name the database "final_project"
     - import the included .sql file to create intitial mySQL database
+
 6.) run the website
-    $npm run dev
+    $yarn dev
+
 7.) enjoy
 
 
