@@ -8,6 +8,13 @@ export default async function handler(req, res) {
         const username = req.body.user
         const password = req.body.pass
 
+        //validate the entries
+        if (username == "") {
+            res.json({ success: false });
+        } else if (password == "") {
+            res.json({ success: false });
+        }
+
         let userData = await executeQuery("SELECT * FROM person WHERE user=?",[username])
         //res.send(userData)
 
