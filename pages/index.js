@@ -15,7 +15,10 @@ export default function Home() {
 
       <div className="h-96 flex">
         <span className="m-auto">
-          Home Page
+          <a href='shop'>
+        <img className="mainPage "border="0" alt="Shop Now!" src="https://shop.georgiadogs.com/content/ws/all/725738e9-f168-4afb-be53-1ae1c4810a32.jpg"/>
+        </a>
+        <h3>Featured Products</h3>
         </span>
       </div>
 
