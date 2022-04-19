@@ -1,0 +1,32 @@
+{
+  "name": "final-project",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "antd": "^4.18.7",
+    "crypto": "^1.0.1",
+    "hamburger-react": "^2.4.1",
+    "js-base64": "^3.7.2",
+    "manager": "^1.0.9",
+    "mysql": "^2.18.1",
+    "next": "12.0.10",
+    "next-connect": "^0.12.2",
+    "package": "^1.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hooks-global-state": "^1.0.2",
+    "react-slidedown": "^2.4.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.0.10",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.23"
+  }
+}
