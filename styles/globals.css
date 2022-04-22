@@ -3,26 +3,26 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'oswald-light';
+  font-family: "oswald-light";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: local('Oswald'), url(../fonts/Oswald-Light.ttf) format('truetype');
+  src: local("Oswald"), url(../fonts/Oswald-Light.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'oswald-medium';
+  font-family: "oswald-medium";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('Oswald'), url(../fonts/Oswald-Medium.ttf) format('truetype');
+  src: local("Oswald"), url(../fonts/Oswald-Medium.ttf) format("truetype");
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Georgia, sans-serif
+  font-family: Georgia, sans-serif;
 }
 
 a {
@@ -31,15 +31,12 @@ a {
 }
 
 button {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 * {
   box-sizing: border-box;
 }
-
-
-
 
 /* FONTS */
 .oswald {
@@ -61,59 +58,94 @@ button {
 }
 
 .bulldog-red {
-  color: #BA0C2F;
+  color: #ba0c2f;
 }
 
 .bulldog-red-bg {
-  background-color: #BA0C2F;
+  background-color: #ba0c2f;
 }
 
 /* secondary colors */
 .glory-glory {
-  color: #E4002B;
+  color: #e4002b;
 }
 
 .glory-glory-bg {
-  background-color: #E4002B;
+  background-color: #e4002b;
 }
 
 .lake-herrick {
-  color: #00A3AD;
+  color: #00a3ad;
 }
 
 .lake-herrick-bg {
-  background-color: #00A3AD;
+  background-color: #00a3ad;
 }
 
 .odyssey {
-  color: #C8D8EB;
+  color: #c8d8eb;
 }
 
 .odyssey-bg {
-  background-color: #C8D8EB;
+  background-color: #c8d8eb;
 }
 
 .stegman {
-  color: #9EA2A2;
+  color: #9ea2a2;
 }
 
 .stegman-bg {
-  background-color: #9EA2A2;
+  background-color: #9ea2a2;
 }
 
 /* Custom */
 .slidedown {
   overflow: hidden;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
 }
 
 .custom-btn {
-  color:white;
-  background-color: #9EA2A2;
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-  padding-left: .5rem;
-  padding-right: .5rem;
+  color: white;
+  background-color: #9ea2a2;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   border-radius: 0.375rem;
+}
+/*Shop Page*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: right;
+  text-align: center;
+  font-family: arial;
+  display: inline-block;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+h2 {
+  font-size: 25px;
+  font-family: oswald-medium, sans-serif;
 }

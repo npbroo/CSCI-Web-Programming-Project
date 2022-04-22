@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { LogOutButton } from '../components/buttons/LogOutButton'
 import { UpdatePassForm } from './forms/UpdatePassForm';
+import { Orders } from './Orders';
 
 export const Dashboard = () => {
 
@@ -18,6 +19,8 @@ export const Dashboard = () => {
             <div className="oswald text-xl mb-1">Change Password</div>
             <UpdatePassForm/>
             <br/>
+            <div className="oswald text-xl mb-1">Orders</div>
+            <Orders/>
             
         </>
     );
