@@ -11,7 +11,6 @@ export default function Checkout() {
                     Checkout page (Rian)
                     <br/>
                     Fill this in with a basic template
-
                 </span>
             </div>
             <Footer />
