@@ -59,7 +59,7 @@ export default function Home() {
  <div className='featuredprodFour'>
  <a href='shop'>
 
-  <img className="tee" src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_3483000/altimages/ff_3483073-cb395b47a211140d586ealt1_full.jpg&w=900" alt="UGA Rain Jacket ="/>
+  <img className="tee" src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_3483000/altimages/ff_3483073-cb395b47a211140d586ealt1_full.jpg&w=900" alt="UGA Hat ="/>
   <h1>UGA Hat</h1>
   <p className="price">$25.99</p>
   <button className='addCart'>View Product</button>
