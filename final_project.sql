@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2022 at 05:27 PM
+-- Generation Time: Apr 25, 2022 at 05:50 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -93,7 +93,9 @@ CREATE TABLE `users` (
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`oid`);
+  ADD PRIMARY KEY (`oid`),
+  ADD KEY `user_FK` (`userid`),
+  ADD KEY `product_FK` (`productid`);
 
 --
 -- Indexes for table `products`
@@ -105,7 +107,8 @@ ALTER TABLE `products`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`userid`);
+  ADD PRIMARY KEY (`userid`),
+  ADD KEY `order_FK` (`orderid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -128,6 +131,23 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `product_FK` FOREIGN KEY (`productid`) REFERENCES `products` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_FK` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `order_FK` FOREIGN KEY (`orderid`) REFERENCES `orders` (`oid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
