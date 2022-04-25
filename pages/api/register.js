@@ -15,13 +15,13 @@ export default async function handler(req, res) {
             res.json({ success: false });
         }
 
-        let userData = await executeQuery("SELECT * FROM person WHERE user=?",[username])
+        let userData = await executeQuery("SELECT * FROM users WHERE user=?",[username])
         //res.send(userData)
 
         if(userData.length == 0 ) {
             //add user
             try {
-                let register = await executeQuery("INSERT INTO person (user, pass) VALUES (?,?)",[username,password])
+                let register = await executeQuery("INSERT INTO users (user, pass) VALUES (?,?)",[username,password])
                 res.status(201).json(register)
             } catch(err) {
                 res.status(400).json(err)

@@ -9,18 +9,22 @@ How to run:
 4.) install yarn
     $npm install --global yarn
 
-4.) install all of the dependencies
+5.) install all of the dependencies
     - navigate to the base site directory
     $yarn
+    or
+    $npm install 
 
-5.) load the included .sql file into XAMPP
+6.) load the included .sql file into XAMPP
     - name the database "final_project"
     - import the included .sql file to create intitial mySQL database
 
-6.) run the website
+7.) run the website
     $yarn dev
+    or 
+    $npm run dev
 
-7.) enjoy
+8.) enjoy
 
 
 Notes: 
