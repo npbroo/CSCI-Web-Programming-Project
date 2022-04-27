@@ -79,11 +79,13 @@ INSERT INTO `products` (`pid`, `title`, `image`, `price`, `category`, `descripti
 --
 
 CREATE TABLE `users` (
-  `userid` int(50) NOT NULL,
+  `userid` int(50) NOT NULL AUTO_INCREMENT,
   `user` varchar(126) NOT NULL,
   `pass` varchar(126) NOT NULL,
-  `orderid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 
 --
 -- Indexes for dumped tables
@@ -108,7 +110,6 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userid`),
-  ADD KEY `order_FK` (`orderid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -127,12 +128,6 @@ ALTER TABLE `products`
   MODIFY `pid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
@@ -142,13 +137,6 @@ ALTER TABLE `users`
 ALTER TABLE `orders`
   ADD CONSTRAINT `product_FK` FOREIGN KEY (`productid`) REFERENCES `products` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_FK` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `order_FK` FOREIGN KEY (`orderid`) REFERENCES `orders` (`oid`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

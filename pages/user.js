@@ -8,7 +8,7 @@ export default function User() {
     return (
         <>
             <Menu/>
-            <div className="h-96 flex">
+            <div className="flex">
                 <span className="mt-5 ml-5">
                     <RestrictAccess>
                         <Dashboard/>

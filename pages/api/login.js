@@ -8,7 +8,7 @@ export default async function handler(req, res) {
         const username = req.body.user
         const password = req.body.pass
 
-        let userData = await executeQuery("SELECT * FROM person WHERE user=?",[username])
+        let userData = await executeQuery("SELECT * FROM users WHERE user=?",[username])
         //res.send(userData)
 
         if(userData[0]["pass"] == password) {
