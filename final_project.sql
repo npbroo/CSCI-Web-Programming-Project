@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2022 at 05:50 PM
+-- Generation Time: Apr 25, 2022 at 09:47 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -81,11 +81,22 @@ INSERT INTO `products` (`pid`, `title`, `image`, `price`, `category`, `descripti
 CREATE TABLE `users` (
   `userid` int(50) NOT NULL AUTO_INCREMENT,
   `user` varchar(126) NOT NULL,
+<<<<<<< HEAD
   `pass` varchar(126) NOT NULL,
+=======
+  `pass` varchar(126) NOT NULL
+>>>>>>> b36bbfd798ec45316477f0fbdcae3a713103cf6f
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `user`, `pass`) VALUES
+(1, 'admin', 'password');
 
 --
 -- Indexes for dumped tables
@@ -109,7 +120,11 @@ ALTER TABLE `products`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`userid`),
+=======
+  ADD PRIMARY KEY (`userid`);
+>>>>>>> b36bbfd798ec45316477f0fbdcae3a713103cf6f
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -128,6 +143,15 @@ ALTER TABLE `products`
   MODIFY `pid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+<<<<<<< HEAD
+=======
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+>>>>>>> b36bbfd798ec45316477f0fbdcae3a713103cf6f
 -- Constraints for dumped tables
 --
 
@@ -137,6 +161,10 @@ ALTER TABLE `products`
 ALTER TABLE `orders`
   ADD CONSTRAINT `product_FK` FOREIGN KEY (`productid`) REFERENCES `products` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_FK` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
+<<<<<<< HEAD
+=======
+COMMIT;
+>>>>>>> b36bbfd798ec45316477f0fbdcae3a713103cf6f
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
