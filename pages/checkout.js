@@ -6,13 +6,7 @@ export default function Checkout() {
     return (
         <>
             <Menu />
-            <div className="">
-                <span className="m-auto">
-                    Checkout page (Rian)
-                    <br/>
-                    Fill this in with a basic template
-                </span>
-
+            <div className="my-10">
                 <div class="col-75">
                         <div class="container">
 

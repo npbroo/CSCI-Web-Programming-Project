@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
 import { Menu } from '../components/Menu'
 import { Footer } from '../components/Footer'
+import { getProduct } from '../components/utils/ProductHandler';
 
 export default function Home() {
 
@@ -20,26 +21,6 @@ export default function Home() {
     setProduct3(await getProduct(17))
     setProduct4(await getProduct(8))
   }, []); 
-
-  // sends a post request to the api and returns information for a single product from the database (based on the pid #)
-  // NOTE: API route logic is saved under 'pages/api/*'
-  async function getProduct(pid) {
-    // build post request object
-    const res = await fetch('/api/get_product', {
-      method: 'POST',
-      body: JSON.stringify({ pid: pid }),
-      headers: {
-          'Content-Type': 'application/json'
-      }
-    })
-    // parse request and clean the data object
-    const data = await res.json()
-    let products_arr = []
-    for(let p in data) {
-      products_arr.push(data[p])
-    }
-    return products_arr[0][0]
-  }
 
   return (
     <>

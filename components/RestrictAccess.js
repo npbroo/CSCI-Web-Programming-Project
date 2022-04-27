@@ -7,6 +7,7 @@ import { Spin } from 'antd'
 export const RestrictAccess = (props) => {
     let router = useRouter()
     const [visible, setVisible] = useState(false);
+    
 
     //If user is not logged in, send them to the login page
     useEffect(() => {

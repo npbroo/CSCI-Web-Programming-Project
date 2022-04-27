@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router'
-import { setGlobalState } from "../../state/global_states";
+import { logOutUser } from '../utils/UserHandler'
 
 export const LogOutButton = (props) => {
     let router = useRouter()
 
-    const logOut = () => {
-        setGlobalState("logged_in", false)
-        localStorage.setItem("logged_in", false)
-        router.push("/")
+    function logOut() {
+        if(logOutUser()) {
+            router.push("/")
+        }
     }
 
     return (

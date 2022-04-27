@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link';
+import { loginUser } from '../utils/UserHandler'
 
 export const LoginForm = () => {
     let router = useRouter()
@@ -7,36 +7,12 @@ export const LoginForm = () => {
     //this function is called when submitting the form
     async function onSubmit(e) {
         console.log(e)
-        e.preventDefault()
+        e.preventDefault() // prevents a page refresh on user submit
         let user = e.target.user.value
         let pass = e.target.pass.value
 
-        // validate the entries
-        if (user == "") {
-            alert("please type a username")
-        } else if (pass == "") {
-            alert("please type a password")
-        } else {
-            // call database here
-            const res = await fetch('/api/login', {
-                method: 'POST',
-                body: JSON.stringify({ user: user, pass: pass }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            const data = await res.json()
-            console.log(data)
-
-            if (data["success"]) {
-                localStorage.setItem("logged_in", true)
-                localStorage.setItem("username", user)
-                router.push("/user")
-            } else {
-                alert("Cannot login. Wrong username or password.")
-            }
-        }
+        let logged_in = await loginUser(user, pass)
+        if(logged_in) router.push("/user")
     }
 
 //render the form page

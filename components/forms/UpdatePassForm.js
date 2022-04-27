@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { updateUserPass } from '../utils/UserHandler'
 
 export const UpdatePassForm = () => {
     let router = useRouter()
@@ -11,31 +12,8 @@ export const UpdatePassForm = () => {
         let newPass = e.target.newPass.value
         let confirmPass = e.target.confirmPass.value
 
-        // validate the entries
-        if (user == "") {
-            alert("please type a username")
-        } else if (oldPass == "" || newPass == "") {
-            alert("please type a password")
-        } else if (newPass != confirmPass) {
-            alert("your passwords do not match")
-        } else {
-            //call database here
-            const res = await fetch('/api/update-pass', {
-                method: 'POST',
-                body: JSON.stringify({ pass: confirmPass, user: user, oldPass: oldPass }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            const data = await res.json()
-
-            if(data["success"] == false) {
-                alert("Your password is incorrect")
-            } else {
-                alert("Your password has been updated")
-                router.reload()
-            }
+        if(await updateUserPass(user, oldPass, newPass, confirmPass)) {
+            router.reload()
         }
     }
 

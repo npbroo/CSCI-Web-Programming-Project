@@ -1,52 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Menu } from "../components/Menu";
 import { Footer } from "../components/Footer";
+// imports helper functions for interacting with the cart and database
+import { addToCart } from '../components/utils/CartHandler';
+import { getProducts } from '../components/utils/ProductHandler';
 
 export default function Shop() {
 
   const [products, setProducts] = useState([]) //stores all of the product data which is retrieved from the database
   const [filter, setFilter] = useState(null) //stores the filter data. This is a string which is either null for all, or 'shirt', 'pants', 'hat', 'jersey'
 
-  useEffect(() => {
-    getProducts()
+  useEffect(async () => {
+    setProducts(await getProducts())
   }, []); 
-
-  // sends a post request to the api which returns all of the products in the database
-  // store all the product information in the 'products' variable within a dictionary object
-  // NOTE: API route logic is saved under 'pages/api/*'
-  async function getProducts() {
-    // build post request object
-    const res = await fetch('/api/get_products', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      }
-    })
-    const data = await res.json()
-
-    // parse request and clean the data object
-    let products_arr = []
-    for(let p in data) {
-      products_arr.push(data[p])
-    }
-
-    // store the returned information in the products variable
-    console.log(products_arr)
-    setProducts(products_arr)
-  }
-
-  // sends a post request to the api which updates the users cart
-  // functionality for adding a product to the cart (THIS IS A WORK IN PROGRESS)
-  async function addToCart(pid) {
-    const res = await fetch('/api/add_to_cart', {
-      method: 'POST',
-      body: JSON.stringify({ pid: pid }),
-      headers: {
-          'Content-Type': 'application/json'
-      }
-    })
-    const data = await res.json()
-  }
   
   // changes the css to highlight which filter is selected 
   // returns the filter component
@@ -61,9 +27,9 @@ export default function Shop() {
       <>
         <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + all_css}    onClick={() => {setFilter(null)}}>All</button>
         <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + shirts_css} onClick={() => {setFilter("shirt")}}>Shirts</button>
-        <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + pants_css}             onClick={() => {setFilter("pants")}}>Pants</button>
+        <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + pants_css}  onClick={() => {setFilter("pants")}}>Pants</button>
         <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + hat_css}    onClick={() => {setFilter("hat")}}>Hats</button>
-        <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + jersey_css}  onClick={() => {setFilter("jersey")}}>Jerseys</button>
+        <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + jersey_css} onClick={() => {setFilter("jersey")}}>Jerseys</button>
       </>
     );
   }
@@ -105,7 +71,7 @@ export default function Shop() {
                     <p className="price">${product.price.toFixed(2)}</p>
                     <p className="p-5 text-left odyssey-bg mb-0">{product.description}</p>
                     <p className="mb-0">
-                      <button onClick={() => {addToCart(product.pid)}}>Add to Cart</button>
+                      <button onClick={() => {addToCart(product.pid, 1); alert("added " + product.title + " to your cart")}}>Add to Cart</button>
                     </p>
                 </div>
               )
@@ -119,7 +85,7 @@ export default function Shop() {
                     <p className="price">${product.price.toFixed(2)}</p>
                     <p className="p-5 text-left odyssey-bg mb-0">{product.description}</p>
                     <p className="mb-0">
-                      <button onClick={() => {addToCart(product.pid)}}>Add to Cart</button>
+                      <button onClick={() => {addToCart(product.pid, 1)}}>Add to Cart</button>
                     </p>
                 </div>
               )

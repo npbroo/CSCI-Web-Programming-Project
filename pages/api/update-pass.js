@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         const password = req.body.pass
         const username = req.body.user
         
-        let userData = await executeQuery("SELECT * FROM person WHERE user=?",[username])
+        let userData = await executeQuery("SELECT * FROM users WHERE user=?",[username])
         //res.send(userData)
 
         if(userData.length == 0 ) {
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         } else {
             if(userData[0]["pass"] == oldPassword) {
                 //password matches, update old password
-                let updatePass = await executeQuery("UPDATE person SET pass=? WHERE user=?", [password, username])
+                let updatePass = await executeQuery("UPDATE users SET pass=? WHERE user=?", [password, username])
                 res.status(201).json(updatePass)
             } else {
                 //password does not match
