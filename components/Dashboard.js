@@ -19,7 +19,7 @@ export const Dashboard = () => {
             <div className="oswald text-xl mb-1">Change Password</div>
             <UpdatePassForm/>
             <br/>
-            <div className="oswald text-xl mb-1">Orders</div>
+            <div className="oswald text-xl mb-1">Previous Orders</div>
             <Orders/>
             
         </>

@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         let uid = await executeQuery("SELECT userid FROM `users` WHERE user = ?", [username])
       
         
-        let orders = await executeQuery("SELECT products.title, products.price, orders.quantity, orders.time FROM orders INNER JOIN products ON orders.productid = products.pid WHERE userid = ?", [uid[0]["userid"]])
+        let orders = await executeQuery("SELECT products.title, products.price, orders.quantity, orders.time FROM orders INNER JOIN products ON orders.productid = products.pid WHERE userid = ? ORDER BY orders.time", [uid[0]["userid"]])
         
         res.json({orders})
     }

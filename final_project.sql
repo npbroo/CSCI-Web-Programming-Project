@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 11:35 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.4
+-- Generation Time: Apr 28, 2022 at 05:12 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `orders` (
   `quantity` int(50) NOT NULL,
   `productid` int(50) NOT NULL,
   `userid` int(50) NOT NULL,
-  `time` time NOT NULL
+  `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -124,7 +124,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `oid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `oid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `products`
