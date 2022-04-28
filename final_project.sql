@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2022 at 09:47 PM
+-- Generation Time: Apr 27, 2022 at 11:35 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -31,7 +31,8 @@ CREATE TABLE `orders` (
   `oid` int(50) NOT NULL,
   `quantity` int(50) NOT NULL,
   `productid` int(50) NOT NULL,
-  `userid` int(50) NOT NULL
+  `userid` int(50) NOT NULL,
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -84,9 +85,6 @@ CREATE TABLE `users` (
   `pass` varchar(126) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-
-
 --
 -- Dumping data for table `users`
 --
@@ -126,7 +124,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `oid` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `oid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -138,7 +136,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
