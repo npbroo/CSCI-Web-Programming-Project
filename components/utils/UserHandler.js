@@ -61,6 +61,10 @@ export const loginUser = async function loginUser(user, pass) {
         if (data["success"]) {
             localStorage.setItem("logged_in", true)
             localStorage.setItem("username", user)
+            localStorage.setItem("cart", "")
+            let cart = {}
+            cart[user] = {}
+            localStorage.setItem("cart", JSON.stringify(cart))
             return true
         } else {
             alert("Cannot login. Wrong username or password.")
@@ -74,7 +78,7 @@ export const logOutUser = function logOutUser() {
     setGlobalState("logged_in", false)
     localStorage.setItem("logged_in", false)
     localStorage.setItem("username", "")
-    localStorage.setItem("cart", "")
+    localStorage.setItem("cart", JSON.stringify({}))
     return true
 }
 

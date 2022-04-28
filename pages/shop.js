@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer";
 // imports helper functions for interacting with the cart and database
 import { addToCart } from '../components/utils/CartHandler';
 import { getProducts } from '../components/utils/ProductHandler';
+import { openNotif } from '../components/utils/Notifications';
 
 export default function Shop() {
 
@@ -32,6 +33,15 @@ export default function Shop() {
         <button className={"mx-2 hover:bg-white px-5 py-2 rounded-lg " + jersey_css} onClick={() => {setFilter("jersey")}}>Jerseys</button>
       </>
     );
+  }
+
+  function buildAddToCart(product) {
+    if(localStorage.getItem("username")) {
+      return (
+        <button onClick={() => {addToCart(product.pid, 1); openNotif("success", "", "Added " + product.title + " to cart")}}>Add to Cart</button>
+      )
+    } else return null
+
   }
   
 
@@ -71,7 +81,7 @@ export default function Shop() {
                     <p className="price">${product.price.toFixed(2)}</p>
                     <p className="p-5 text-left odyssey-bg mb-0">{product.description}</p>
                     <p className="mb-0">
-                      <button onClick={() => {addToCart(product.pid, 1); alert("added " + product.title + " to your cart")}}>Add to Cart</button>
+                      {buildAddToCart(product)}
                     </p>
                 </div>
               )
@@ -85,7 +95,7 @@ export default function Shop() {
                     <p className="price">${product.price.toFixed(2)}</p>
                     <p className="p-5 text-left odyssey-bg mb-0">{product.description}</p>
                     <p className="mb-0">
-                      <button onClick={() => {addToCart(product.pid, 1)}}>Add to Cart</button>
+                    {buildAddToCart(product)}
                     </p>
                 </div>
               )

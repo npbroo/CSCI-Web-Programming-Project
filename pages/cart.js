@@ -3,6 +3,7 @@ import { Menu } from '../components/Menu';
 import { Footer } from '../components/Footer'
 import { getProduct } from '../components/utils/ProductHandler';
 import { removeFromCart } from '../components/utils/CartHandler';
+import { openNotif } from '../components/utils/Notifications';
 
 export default function Cart() {
 
@@ -78,7 +79,7 @@ export default function Cart() {
                                     <>
                                         {/*Run a foreach loop through all the products stored in the 'cart' dictionary object*/}
                                         {cart.map((product) => (
-                                            <p><a href="#">{product.title}</a>&emsp;<button onClick={() => removeItemFromCart(product.pid, 1)} className="text-red-500"><u>delete</u></button><span className="price">{product.qty} x ${product.price.toFixed(2)}</span></p>
+                                            <p><a href="#">{product.title}</a>&emsp;<button onClick={() => {removeItemFromCart(product.pid, 1); openNotif("success", "", "removed " + product.title + " from cart.")}} className="text-red-500"><u>delete</u></button><span className="price">{product.qty} x ${product.price.toFixed(2)}</span></p>
                                         ))}
 
                                         <h2>Total <span className="price"><b>${totalPrice.toFixed(2)}</b></span></h2>
