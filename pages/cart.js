@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer'
 import { getProduct } from '../components/utils/ProductHandler';
 import { removeFromCart } from '../components/utils/CartHandler';
 import { openNotif } from '../components/utils/Notifications';
+import { RestrictAccess } from '../components/RestrictAccess';
 
 export default function Cart() {
 
@@ -61,6 +62,7 @@ export default function Cart() {
     return (
         <>
             <Menu />
+            <RestrictAccess>
             <div className="flex my-10">
                 <div className="col-25">
                     <div className="container">
@@ -78,8 +80,8 @@ export default function Cart() {
                                     ?
                                     <>
                                         {/*Run a foreach loop through all the products stored in the 'cart' dictionary object*/}
-                                        {cart.map((product) => (
-                                            <p><a href="#">{product.title}</a>&emsp;<button onClick={() => {removeItemFromCart(product.pid, 1); openNotif("success", "", "removed " + product.title + " from cart.")}} className="text-red-500"><u>delete</u></button><span className="price">{product.qty} x ${product.price.toFixed(2)}</span></p>
+                                        {cart.map((product, index) => (
+                                            <p key={index}><a href="#">{product.title}</a>&emsp;<button onClick={() => {removeItemFromCart(product.pid, 1); openNotif("success", "", "removed " + product.title + " from cart.")}} className="text-red-500"><u>delete</u></button><span className="price">{product.qty} x ${product.price.toFixed(2)}</span></p>
                                         ))}
 
                                         <h2>Total <span className="price"><b>${totalPrice.toFixed(2)}</b></span></h2>
@@ -101,6 +103,7 @@ export default function Cart() {
                     </div>
                 </div>
             </div>
+            </RestrictAccess>
             <Footer />
         </>
     )

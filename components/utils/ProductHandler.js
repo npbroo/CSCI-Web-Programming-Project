@@ -4,7 +4,7 @@
 // NOTE: API route logic is saved under 'pages/api/*'
 export const getProduct = async function getProduct(pid) {
     // build post request object
-    const res = await fetch('/api/get_product', {
+    const res = await fetch('/api/get-product', {
       method: 'POST',
       body: JSON.stringify({ pid: pid }),
       headers: {
@@ -25,7 +25,7 @@ export const getProduct = async function getProduct(pid) {
 // NOTE: API route logic is saved under 'pages/api/*'
 export const getProducts = async function getProducts() {
     // build post request object
-    const res = await fetch('/api/get_products', {
+    const res = await fetch('/api/get-products', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'

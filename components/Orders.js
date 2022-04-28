@@ -3,10 +3,27 @@ import { getOrders } from './utils/OrdersHandler';
 
 export const Orders = () => {
 
-    const [orders, setOrders] = useState([])
+    const [orders, setOrders] = useState(null)
 
     useEffect(async() => {
-        setOrders(await getOrders())
+        let all = await getOrders()
+        setOrders(all)
+
+        all = all[0]
+        let orders_arr = []
+        let index = 0
+        for (let o in all) {
+          if(!orders_arr[index]) {
+            orders_arr[index] = []
+            orders_arr[index].push(all[o])
+          } else if(orders_arr[index][0]["time"] == all[o]["time"]) {
+            orders_arr[index].push(all[o])
+          } else {
+            index++
+          }
+        }
+
+        console.log(orders_arr)
       }, []);
 
     function convertDate(dateString) {
@@ -14,9 +31,9 @@ export const Orders = () => {
     }
 
     return (
-        <div className="odyssey-bg p-5 rounded-lg">
+        <div className="odyssey-bg p-5 rounded-lg mb-10">
              {/*Make sure the products are loaded from the database before trying to display them*/}
-            {orders && orders.length != 0
+            {orders && orders[0] && orders[0].length != 0
             ?
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {orders[0].map((order, index) => {
@@ -26,13 +43,13 @@ export const Orders = () => {
                   <div key={index} className="card m-auto w-72 p-5 bg-white">
                       <p className="">({convertDate(order.time)})</p>
                      <p className="">({order.quantity}x) {order.title}</p>
-                     <p className="odyssey-bg drop-shadow-lg rounded-lg">Total = ${order.price * order.quantity}.00</p>
+                     <p className="odyssey-bg drop-shadow-lg rounded-lg py-2">Total = ${order.price * order.quantity}.00</p>
                   </div>
                 )
             })}
             </div>
             :
-            null
+            <p>You have no previous orders.</p>
             }
         </div>
     );

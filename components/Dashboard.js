@@ -1,13 +1,21 @@
 import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import { LogOutButton } from '../components/buttons/LogOutButton'
 import { UpdatePassForm } from './forms/UpdatePassForm';
 import { Orders } from './Orders';
 
 export const Dashboard = () => {
 
+    const [user, setUser] = useState("anonymous");
+
+    useEffect(() => {
+        let u = localStorage.getItem("username")
+        setUser(u)
+    }, []);
+
     return (
         <>
-            <div className="oswald text-xl mb-1">User Dashboard</div>
+            <div className="oswald text-xl mb-1">Welcome, {user}</div>
             <div>This is the user dashboard, here you can see your previous orders and user information.</div>
             <br/>
             <div className="oswald text-xl mb-1">Control Panel</div>

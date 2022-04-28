@@ -40,7 +40,7 @@ export default function Home() {
   
           <h2 className='mx-10 mx-auto text-3xl my-10 pt-10'>Our Featured Products</h2>
 
-          <div className="py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg: lg:grid-cols-4 gap-10 justify-items-center my-5 stegman-bg rounded-lg">
+          <div className="py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg: lg:grid-cols-4 gap-10 justify-items-center my-5 stegman-bg rounded-lg px-10">
             
             {/*Displays the first featured product if it is loaded from the database*/}
             {product1 != null 
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
 
           {/*Button that reroutes you to the shop page*/}
-          <a href='shop' className='btn-hover'><button className="m-auto text-center pt-3 pb-2 px-5 bg-black rounded-lg mt-2"><h2 className="text-white">Shop Now</h2></button></a>
+          <a href='shop' className='btn-hover'><button className="m-auto text-center pt-3 pb-2 px-5 bg-black rounded-lg mt-2 mb-10 md:mb-0"><h2 className="text-white">Shop Now</h2></button></a>
         </div>
 
         {/*Banner image that reroutes you to the shop page*/}

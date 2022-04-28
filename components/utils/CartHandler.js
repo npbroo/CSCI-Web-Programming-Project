@@ -46,3 +46,20 @@ export const removeFromCart = function removeFromCart(pid, qty) {
   console.log(cart)
   localStorage.setItem("cart", JSON.stringify(cart))
 }
+
+export const clearCart = function clearCart() {
+  let user = localStorage.getItem("username")
+  let cart = {}
+  cart[user] = {}
+  localStorage.setItem("cart", JSON.stringify(cart))
+}
+
+export const getCart = function getCart() {
+  let cart = JSON.parse(localStorage.getItem("cart"))
+  let user = localStorage.getItem("username")
+  if(cart && cart[user]) {
+    return cart[user]
+  } else {
+    return false
+  } 
+}
