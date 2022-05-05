@@ -2,12 +2,12 @@ How to run:
 
 This project is built using NEXT.js which is built on the React javascript framework. The github Repository is public and located at this link: https://github.com/npbroo/CSCI-Web-Programming-Project
 
-
+In order to run the website locally, you must install node.js and the npm package manager. However, to make it easier to view the website our group has uploaded it to a hosting platform so that you do not need to install all of the dependencies. 
 
 
 1.) install node.js
-
-2.) install npm package manager
+    - https://nodejs.org/en/download/
+    - this will install the npm package manager
 
 3.) install all of the dependencies
     - navigate to the base site directory within your console/command prompt
