@@ -14,7 +14,7 @@ export default function Login() {
                 <div>Please login using the form below:</div><br/>
                 <LoginForm />
                 <br/>
-                Don't have an account?&nbsp;
+                Don&apos;t have an account?&nbsp;
                 <a><Link href="/user/register">Register Here</Link></a>
             </div>
             <Footer />

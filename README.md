@@ -1,30 +1,29 @@
 How to run:
 
-1.) install visual studio
+This project is built using NEXT.js which is built on the React javascript framework. The github Repository is public and located at this link: https://github.com/npbroo/CSCI-Web-Programming-Project
 
-2.) install node.js
 
-3.) install npm package manager
 
-4.) install yarn
-    $npm install --global yarn
 
-5.) install all of the dependencies
-    - navigate to the base site directory
-    $yarn
-    or
-    $npm install 
+1.) install node.js
 
-6.) load the included .sql file into XAMPP
+2.) install npm package manager
+
+3.) install all of the dependencies
+    - navigate to the base site directory within your console/command prompt
+    - in the console run:
+        $npm install 
+
+4.) load the included .sql file into XAMPP
     - name the database "final_project"
     - import the included .sql file to create intitial mySQL database
 
-7.) run the website
-    $yarn dev
-    or 
+5.) run the website
+    - navigate to the base site directory within your console/command prompt
+    - in the console run:
     $npm run dev
 
-8.) enjoy
+6.) enjoy
 
 
 Notes: 
