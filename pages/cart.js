@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Menu } from '../components/Menu';
 import { Footer } from '../components/Footer'
 import { getProduct } from '../components/utils/ProductHandler';
@@ -37,7 +38,7 @@ export default function Cart() {
         removeFromCart(pid, qty)
         console.log(cart)
         // update the cart variable to reflect changes live
-            // create shallow clone of array to edit
+            // create shallow a clone of array to edit
             let newCart = [...cart]
             for( let i in newCart) {
                 if (newCart[i] && newCart[i].pid == pid) {
@@ -85,19 +86,19 @@ export default function Cart() {
                                         ))}
 
                                         <h2>Total <span className="price"><b>${totalPrice.toFixed(2)}</b></span></h2>
-                                        <a href="/shop" className="continue">Continue Shopping</a>
-                                        <a href="/checkout" className="co">Proceed to Checkout</a>
+                                        <Link href="/shop" className="continue">Continue Shopping</Link>
+                                        <Link href="/checkout" className="co">Proceed to Checkout</Link>
                                     </>
                                     :
                                     <>
                                         <p>Cart is empty</p>
-                                        <a href="/shop" className="continue">Continue Shopping</a>
+                                        <Link href="/shop" className="continue">Continue Shopping</Link>
                                     </> 
                                     
 
                                 }
                             </>
-                            : <p>Please <a href="user/login">login</a> first</p>
+                            : <p>Please <Link href="/user/login">login</Link> first</p>
                         }
 
                     </div>
