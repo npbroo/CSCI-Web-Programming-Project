@@ -4,6 +4,9 @@ This project is built using NEXT.js which is built on the React javascript frame
 
 In order to run the website locally, you must install node.js and the npm package manager. 
 
+We have included a setup video outlining the setup process for reference:
+https://youtu.be/L_xya1kH2_k
+
 1.) install node.js
     - https://nodejs.org/en/download/
     - this will install the npm package manager
